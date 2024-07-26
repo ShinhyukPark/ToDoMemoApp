@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		412634332C53D41600AE9C6B /* ToDoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412634322C53D41600AE9C6B /* ToDoModel.swift */; };
 		41EE35B82C4F868D006F55DE /* ToDoMemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EE35B72C4F868D006F55DE /* ToDoMemoAppApp.swift */; };
 		41EE35BA2C4F868D006F55DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EE35B92C4F868D006F55DE /* ContentView.swift */; };
 		41EE35BC2C4F868E006F55DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41EE35BB2C4F868E006F55DE /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		412634322C53D41600AE9C6B /* ToDoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoModel.swift; sourceTree = "<group>"; };
 		41EE35B42C4F868D006F55DE /* ToDoMemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoMemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41EE35B72C4F868D006F55DE /* ToDoMemoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoMemoAppApp.swift; sourceTree = "<group>"; };
 		41EE35B92C4F868D006F55DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 				41EE35B72C4F868D006F55DE /* ToDoMemoAppApp.swift */,
 				41EE35B92C4F868D006F55DE /* ContentView.swift */,
 				41EE35C92C4FF0AE006F55DE /* ToDoListView.swift */,
+				412634322C53D41600AE9C6B /* ToDoModel.swift */,
 				41EE35BB2C4F868E006F55DE /* Assets.xcassets */,
 				41EE35BD2C4F868E006F55DE /* Preview Content */,
 			);
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41EE35BA2C4F868D006F55DE /* ContentView.swift in Sources */,
+				412634332C53D41600AE9C6B /* ToDoModel.swift in Sources */,
 				41EE35CA2C4FF0AE006F55DE /* ToDoListView.swift in Sources */,
 				41EE35B82C4F868D006F55DE /* ToDoMemoAppApp.swift in Sources */,
 			);

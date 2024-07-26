@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ToDoListView: View {
     
-    @State private var isChecked = false
+    @Environment(\.modelContext) private var modelContext
     @State private var todoItem = ""
-    @State private var items: [String] = []
+    @Query private var todoItems: [ToDoItems]
     
     var body: some View {
         NavigationStack {
@@ -23,7 +24,7 @@ struct ToDoListView: View {
                             .padding()
                             .background(RoundedRectangle(cornerRadius: 15).fill(Color.white))
                         Button {
-                            items.append(todoItem)
+                            modelContext.insert(ToDoItems(todoItem: todoItem, isChecked: false))
                             todoItem = ""
                         } label: {
                            Text("+")
@@ -38,13 +39,26 @@ struct ToDoListView: View {
                     }
                     .padding(.horizontal)
                     List{
-                        ForEach(items, id: \.self){ item in
+                        ForEach(todoItems){ item in
                             HStack {
-                                Text(item)
+                                Button {
+                                    item.isChecked.toggle()
+                                } label: {
+                                    Image(systemName: item.isChecked ? "checkmark.square.fill" : "checkmark.square")
+                                        .font(.system(size:25))
+                                }
+                                
+                                Text(item.todoItem)
+                                    .strikethrough(item.isChecked)
+                                    .foregroundStyle(item.isChecked ? Color.gray : Color.black)
+                                    .padding(.leading)
                             }
                         }
                         .onDelete(perform: { indexSet in
-                            items.remove(atOffsets: indexSet)
+                            for i in indexSet {
+                                let item = todoItems[i]
+                                modelContext.delete(item)
+                            }
                         })
     //                    .listRowBackground(Color.softYellow)
                     }
@@ -61,5 +75,5 @@ struct ToDoListView: View {
 }
 
 #Preview {
-    ToDoListView()
+    ToDoListView().modelContainer(for:ToDoItems.self)
 }
