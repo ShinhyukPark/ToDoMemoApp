@@ -18,12 +18,18 @@ struct ToDoListView: View {
         NavigationStack {
             ZStack {
                 Color.softYellow.ignoresSafeArea()
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        UIApplication.shared.endEditing()
+                    }
                 VStack{
                     HStack {
                         TextField("Add a new task", text: $todoItem)
                             .padding()
                             .background(RoundedRectangle(cornerRadius: 15).fill(Color.white))
                         Button {
+                            //빈 텍스트 필드를 추가하지 않도록
+                            guard !todoItem.isEmpty else { return }
                             modelContext.insert(ToDoItems(todoItem: todoItem, isChecked: false))
                             todoItem = ""
                         } label: {
@@ -60,7 +66,6 @@ struct ToDoListView: View {
                                 modelContext.delete(item)
                             }
                         })
-    //                    .listRowBackground(Color.softYellow)
                     }
                     .scrollContentBackground(.hidden)
                 }
@@ -71,6 +76,12 @@ struct ToDoListView: View {
                 EditButton()
             }
         }
+    }
+}
+// 바탕을 눌러서 키보드 내리기
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
