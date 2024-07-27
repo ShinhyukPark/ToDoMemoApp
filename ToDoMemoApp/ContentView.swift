@@ -18,7 +18,7 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "waveform")
                 }
-            Text("Memo")
+            MemoView()
                 .tabItem {
                     Image(systemName: "square.and.pencil")
                 }
