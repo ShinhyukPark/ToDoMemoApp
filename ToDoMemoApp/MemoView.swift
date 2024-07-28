@@ -6,18 +6,23 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct MemoView: View {
     
-    @StateObject private var memoModel = MemoItems()
+    @Environment(\.modelContext) private var modelContext
+    @Query var memoItems: [MemoItems]
     @State private var isShowingSheet = false
+    @State private var searchText = ""
     
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.softYellow.ignoresSafeArea()
                 VStack{
-                    if memoModel.memoItems.isEmpty{
+                    Color.clear
+                        .frame(height:0)
+                    if memoItems.isEmpty{
                         Button {
                             isShowingSheet.toggle()
                         } label: {
@@ -30,16 +35,23 @@ struct MemoView: View {
                                 }
                         }
                         .sheet(isPresented: $isShowingSheet, content: {
-                            AddMemoView(memoItems: memoModel)
+                            AddMemoView()
                         })
                     }else{
                         List {
-                            ForEach(memoModel.memoItems) { item in
-                                NavigationLink(destination: MemoDetailView(memoItems: memoModel, memo: item)) {
+                            ForEach(memoItems.filter { item in
+                                searchText.isEmpty || item.memoTitle.contains(searchText)
+                            }) { item in
+                                NavigationLink(destination: MemoDetailView(memo: item)) {
                                     Text(item.memoTitle)
                                 }
                             }
-                            .onDelete(perform: memoModel.deleteMemo)
+                            .onDelete(perform: { indexSet in
+                                for i in indexSet {
+                                    let item = memoItems[i]
+                                    modelContext.delete(item)
+                                }
+                            })
                         }
                         .scrollContentBackground(.hidden)
                         Button {
@@ -53,13 +65,14 @@ struct MemoView: View {
                                     RoundedRectangle(cornerRadius: 15).fill(Color("ButtonColor"))
                                 }
                         }
+                        .padding(20)
                         .sheet(isPresented: $isShowingSheet, content: {
-                            AddMemoView(memoItems: memoModel)
+                            AddMemoView()
                         })
                     }
                 }
-                .padding()
             }
+            .searchable(text: $searchText)
             .navigationTitle("Memo")
             .toolbar{
                 EditButton()
@@ -68,6 +81,7 @@ struct MemoView: View {
     }
 }
 
+
 #Preview {
-    MemoView()
+    MemoView().modelContainer(for:[ToDoItems.self, MemoItems.self])
 }

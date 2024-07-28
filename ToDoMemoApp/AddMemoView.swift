@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AddMemoView: View {
-    @ObservedObject var memoItems: MemoItems
+    @Environment(\.modelContext) private var modelContext
+//    var modelBudle: [MemoItems]
     @State private var title = ""
     @State private var content = ""
     
@@ -40,23 +42,26 @@ struct AddMemoView: View {
                 }
                 Spacer()
                 Button {
-                    memoItems.addMemo(title: title, content: content)
+                    modelContext.insert(MemoItems(memoTitle: title, memoContent: content))
                     dismiss()
                 } label: {
-                    HStack {
-                        Spacer()
-                        Text("저장")
-                             .font(.system(size: 20)).bold()
-                             .frame(width:100, height: 50)
-                             .foregroundStyle(Color.white)
-                             .background {
-                                 RoundedRectangle(cornerRadius: 15).fill(Color("ButtonColor"))
-                         }
-                    }
-                    .padding()
+                    Text("저장")
+                        .font(.system(size: 20)).bold()
+                        .frame(width:100, height: 50)
+                        .foregroundStyle(Color.white)
+                        .background {
+                            RoundedRectangle(cornerRadius: 15).fill(Color("ButtonColor"))
+                        }
+                        .padding()
                 }
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                
             }
             .padding()
         }
     }
 }
+
+//#Preview{
+//    AddMemoView().modelContainer(for:[ToDoItems.self, MemoItems.self])
+//}

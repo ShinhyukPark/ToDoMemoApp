@@ -27,5 +27,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView().modelContainer(for:ToDoItems.self)
+    ContentView().modelContainer(for:[ToDoItems.self, MemoItems.self])
 }
