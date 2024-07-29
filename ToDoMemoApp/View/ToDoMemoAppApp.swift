@@ -28,6 +28,6 @@ struct ToDoMemoAppApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for:[ToDoItems.self, MemoItems.self])
+        .modelContainer(for:[ToDoItems.self, MemoItems.self, VoiceItems.self])
     }
 }

@@ -14,7 +14,7 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "checklist.checked")
                 }
-            Text("Voice Memo")
+            VoiceMemoView()
                 .tabItem {
                     Image(systemName: "waveform")
                 }
@@ -27,5 +27,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView().modelContainer(for:[ToDoItems.self, MemoItems.self])
+    ContentView().modelContainer(for:[ToDoItems.self, MemoItems.self, VoiceItems.self])
 }

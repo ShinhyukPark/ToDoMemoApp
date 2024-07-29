@@ -61,7 +61,3 @@ struct AddMemoView: View {
         }
     }
 }
-
-//#Preview{
-//    AddMemoView().modelContainer(for:[ToDoItems.self, MemoItems.self])
-//}

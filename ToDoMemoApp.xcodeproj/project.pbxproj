@@ -13,6 +13,8 @@
 		414307582C550472000378E5 /* MemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414307572C550472000378E5 /* MemoModel.swift */; };
 		4143075A2C550655000378E5 /* AddMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414307592C550655000378E5 /* AddMemoView.swift */; };
 		4143075C2C550FE0000378E5 /* MemoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4143075B2C550FE0000378E5 /* MemoDetailView.swift */; };
+		4143725A2C566721000D6233 /* VoiceMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414372592C566721000D6233 /* VoiceMemoView.swift */; };
+		4143725D2C566A28000D6233 /* VoiceMemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4143725C2C566A28000D6233 /* VoiceMemoModel.swift */; };
 		41EE35B82C4F868D006F55DE /* ToDoMemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EE35B72C4F868D006F55DE /* ToDoMemoAppApp.swift */; };
 		41EE35BA2C4F868D006F55DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EE35B92C4F868D006F55DE /* ContentView.swift */; };
 		41EE35BC2C4F868E006F55DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41EE35BB2C4F868E006F55DE /* Assets.xcassets */; };
@@ -26,6 +28,9 @@
 		414307572C550472000378E5 /* MemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoModel.swift; sourceTree = "<group>"; };
 		414307592C550655000378E5 /* AddMemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemoView.swift; sourceTree = "<group>"; };
 		4143075B2C550FE0000378E5 /* MemoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDetailView.swift; sourceTree = "<group>"; };
+		414372592C566721000D6233 /* VoiceMemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceMemoView.swift; sourceTree = "<group>"; };
+		4143725B2C5668E6000D6233 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4143725C2C566A28000D6233 /* VoiceMemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceMemoModel.swift; sourceTree = "<group>"; };
 		41EE35B42C4F868D006F55DE /* ToDoMemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoMemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41EE35B72C4F868D006F55DE /* ToDoMemoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoMemoAppApp.swift; sourceTree = "<group>"; };
 		41EE35B92C4F868D006F55DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,6 +57,30 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		413745F82C57426000952997 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				412634322C53D41600AE9C6B /* ToDoModel.swift */,
+				414307572C550472000378E5 /* MemoModel.swift */,
+				4143725C2C566A28000D6233 /* VoiceMemoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		413745F92C57427F00952997 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				41EE35B92C4F868D006F55DE /* ContentView.swift */,
+				41EE35C92C4FF0AE006F55DE /* ToDoListView.swift */,
+				41EE35B72C4F868D006F55DE /* ToDoMemoAppApp.swift */,
+				414372592C566721000D6233 /* VoiceMemoView.swift */,
+				414307552C550202000378E5 /* MemoView.swift */,
+				4143075B2C550FE0000378E5 /* MemoDetailView.swift */,
+				414307592C550655000378E5 /* AddMemoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		41EE35AB2C4F868D006F55DE = {
 			isa = PBXGroup;
 			children = (
@@ -71,14 +100,9 @@
 		41EE35B62C4F868D006F55DE /* ToDoMemoApp */ = {
 			isa = PBXGroup;
 			children = (
-				41EE35B72C4F868D006F55DE /* ToDoMemoAppApp.swift */,
-				41EE35B92C4F868D006F55DE /* ContentView.swift */,
-				414307552C550202000378E5 /* MemoView.swift */,
-				414307592C550655000378E5 /* AddMemoView.swift */,
-				4143075B2C550FE0000378E5 /* MemoDetailView.swift */,
-				41EE35C92C4FF0AE006F55DE /* ToDoListView.swift */,
-				412634322C53D41600AE9C6B /* ToDoModel.swift */,
-				414307572C550472000378E5 /* MemoModel.swift */,
+				4143725B2C5668E6000D6233 /* Info.plist */,
+				413745F82C57426000952997 /* Model */,
+				413745F92C57427F00952997 /* View */,
 				41EE35BB2C4F868E006F55DE /* Assets.xcassets */,
 				4118EAB22C540CA200EE77F8 /* Preview Content */,
 			);
@@ -156,6 +180,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4143075A2C550655000378E5 /* AddMemoView.swift in Sources */,
+				4143725A2C566721000D6233 /* VoiceMemoView.swift in Sources */,
+				4143725D2C566A28000D6233 /* VoiceMemoModel.swift in Sources */,
 				414307562C550202000378E5 /* MemoView.swift in Sources */,
 				41EE35BA2C4F868D006F55DE /* ContentView.swift in Sources */,
 				4143075C2C550FE0000378E5 /* MemoDetailView.swift in Sources */,
@@ -299,6 +325,8 @@
 				DEVELOPMENT_TEAM = BM7N6A3969;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ToDoMemoApp/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "음성메모를 위해 마이크 접근이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -329,6 +357,8 @@
 				DEVELOPMENT_TEAM = BM7N6A3969;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ToDoMemoApp/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "음성메모를 위해 마이크 접근이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
