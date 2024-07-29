@@ -10,7 +10,6 @@ import SwiftData
 
 struct AddMemoView: View {
     @Environment(\.modelContext) private var modelContext
-//    var modelBudle: [MemoItems]
     @State private var title = ""
     @State private var content = ""
     
@@ -45,14 +44,7 @@ struct AddMemoView: View {
                     modelContext.insert(MemoItems(memoTitle: title, memoContent: content))
                     dismiss()
                 } label: {
-                    Text("저장")
-                        .font(.system(size: 20)).bold()
-                        .frame(width:100, height: 50)
-                        .foregroundStyle(Color.white)
-                        .background {
-                            RoundedRectangle(cornerRadius: 15).fill(Color("ButtonColor"))
-                        }
-                        .padding()
+                    SaveButtonView()
                 }
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 

@@ -26,13 +26,7 @@ struct MemoView: View {
                         Button {
                             isShowingSheet.toggle()
                         } label: {
-                            Text("NEW MEMO")
-                                .font(.system(size: 20)).bold()
-                                .frame(width:200, height: 50)
-                                .foregroundStyle(Color.white)
-                                .background {
-                                    RoundedRectangle(cornerRadius: 15).fill(Color("ButtonColor"))
-                                }
+                            ButtonView(title: "NEW MEMO")
                         }
                         .sheet(isPresented: $isShowingSheet, content: {
                             AddMemoView()
@@ -57,13 +51,7 @@ struct MemoView: View {
                         Button {
                             isShowingSheet.toggle()
                         } label: {
-                            Text("NEW MEMO")
-                                .font(.system(size: 20)).bold()
-                                .frame(width:200, height: 50)
-                                .foregroundStyle(Color.white)
-                                .background {
-                                    RoundedRectangle(cornerRadius: 15).fill(Color("ButtonColor"))
-                                }
+                            ButtonView(title: "NEW MEMO")
                         }
                         .padding(20)
                         .sheet(isPresented: $isShowingSheet, content: {
@@ -80,6 +68,34 @@ struct MemoView: View {
         }
     }
 }
+
+struct ButtonView: View{
+    let title: String
+    var body: some View{
+        Text(title)
+            .font(.system(size: 20)).bold()
+            .frame(width:200, height: 50)
+            .foregroundStyle(Color.white)
+            .background {
+                RoundedRectangle(cornerRadius: 15).fill(Color("ButtonColor"))
+            }
+    }
+}
+
+struct SaveButtonView: View {
+    var body: some View {
+        Text("저장")
+            .font(.system(size: 20)).bold()
+            .frame(width:100, height: 50)
+            .foregroundStyle(Color.white)
+            .background {
+                RoundedRectangle(cornerRadius: 15).fill(Color("ButtonColor"))
+            }
+            .padding()
+    }
+}
+
+
 
 
 #Preview {

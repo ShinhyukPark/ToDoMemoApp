@@ -10,20 +10,6 @@ import SwiftData
 
 @main
 struct ToDoMemoAppApp: App {
-//    var container: ModelContainer
-//    
-//    init() {
-//        do{
-//            let config1 = ModelConfiguration(for: ToDoItems.self)
-//            let congih2 = ModelConfiguration(for: MemoItems.self)
-//            
-//            container = try ModelContainer(for: ToDoItems.self, MemoItems.self)
-//        }catch {
-//            fatalError("Failed")
-//        }
-//    }
-    
-    
     var body: some Scene {
         WindowGroup {
             ContentView()

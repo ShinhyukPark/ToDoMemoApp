@@ -40,14 +40,7 @@ struct MemoDetailView: View {
                     memo.memoTitle = title
                     memo.memoContent = content
                 } label: {
-                    Text("저장")
-                        .font(.system(size: 20)).bold()
-                        .frame(width:100, height: 50)
-                        .foregroundStyle(Color.white)
-                        .background {
-                            RoundedRectangle(cornerRadius: 15).fill(Color("ButtonColor"))
-                        }
-                        .padding()
+                    SaveButtonView()
                 }
                 .frame(maxWidth: .infinity, alignment: .trailing)
             }
